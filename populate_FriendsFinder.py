@@ -6,7 +6,7 @@ import django
 django.setup()
 
 from django.contrib.auth.models import User
-from FriendsFinder.models import Character, Thread, ThreadComment
+from FriendsFinder.models import Character, ForumThread, ThreadComment
 from random import randint
 
 #Create Users, Characters that link to users, Threads created by characters, comments created by characters
@@ -48,7 +48,7 @@ def create_threads(characters, limit):
     threads = []
 
     for count in range(0,limit):
-        current = Thread.objects.create(threadCreator=characters[randint(0, characters.count())], threadTitle="test" + str(count), threadContent="test" + str(count))
+        current = ForumThread.objects.create(threadCreator=characters[randint(0, characters.count())], threadTitle="test" + str(count), threadContent="test" + str(count))
         current.save()
         threads.append(current)
     return threads

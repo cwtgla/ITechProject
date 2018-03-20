@@ -1,30 +1,20 @@
 from django.contrib import admin
-from FriendsFinder.models import Category, Page
 from FriendsFinder.models import UserProfile
 
-from FriendsFinder.models import Question, Choice
-from FriendsFinder.models import Thread, Post
+from FriendsFinder.models import QuizQuestion, QuizQuestionChoice
+from FriendsFinder.models import ForumThread, ForumThreadComment
 
-admin.site.register(Category)
 admin.site.register(UserProfile)
-admin.site.register(Question)
-admin.site.register(Choice)
-admin.site.register(Thread)
-admin.site.register(Post)
+admin.site.register(QuizQuestion)
+admin.site.register(QuizQuestionChoice)
+admin.site.register(ForumThread)
+admin.site.register(ForumThreadComment)
 
-class PageAdmin(admin.ModelAdmin):
-	list_display = ('title', 'category', 'url')
-#admin.site.register(Page, PageAdmin)
 
 class ThreadAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug':('title',)}
-	
-class CategoryAdmin(admin.ModelAdmin):
-	prepopulated_fields = {'slug':('name',)}
-# Update the registration to include this customised interface
-admin.site.unregister(Category)
-admin.site.register(Category, CategoryAdmin)	
 
-admin.site.unregister(Thread)
-admin.site.register(Thread, ThreadAdmin)
+# Update the registration to include this customised interface
+admin.site.unregister(ForumThread)
+admin.site.register(ForumThread, ThreadAdmin)
 	
