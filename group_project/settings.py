@@ -25,7 +25,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # new variable pointing to our static directory
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
-# media files will be uploaded to Django project’s root
+# media files will be uploaded to Django projects root
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 # Quick-start development settings - unsuitable for production
