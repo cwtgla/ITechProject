@@ -9,10 +9,8 @@ from django.contrib.auth import logout
 from datetime import datetime
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-
-from FriendsFinder .models import QuizQuestion, QuizQuestionChoice
-from FriendsFinder.models import ForumThread, ForumThreadComment
-from FriendsFinder.forms import ThreadForm, PostForm
+from FriendsFinder.models import *
+from FriendsFinder.forms import *
 
 def index(request):
 	context_dict = {}

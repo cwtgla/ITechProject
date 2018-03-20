@@ -11,10 +11,9 @@ admin.site.register(ForumThread)
 admin.site.register(ForumThreadComment)
 
 
-class ThreadAdmin(admin.ModelAdmin):
-	prepopulated_fields = {'slug':('title',)}
+class ForumThreadAdmin(admin.ModelAdmin):
+	prepopulated_fields = {'threadSlug':('threadTitle',)}
 
 # Update the registration to include this customised interface
 admin.site.unregister(ForumThread)
-admin.site.register(ForumThread, ThreadAdmin)
-	
+admin.site.register(ForumThread, ForumThreadAdmin)

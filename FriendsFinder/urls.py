@@ -15,4 +15,3 @@ urlpatterns = [
 	url(r'^results/', views.results, name='results'),
 	url(r'^forum/', views.forum, name='forum'),
 ]
-

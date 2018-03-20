@@ -3,35 +3,36 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
 class QuizQuestion(models.Model):
-	value = models.CharField(max_length=128, default='')
+	questionContent = models.CharField(max_length=128, default='')
 
 	def __str__(self):
-		return self.value
+		return self.questionContent
 
 class QuizQuestionChoice(models.Model):
-	question = models.ForeignKey(QuizQuestion, null=True, default=None, on_delete=models.CASCADE)
-	value = models.CharField(max_length=128, default='')
+	questionChoiceContent = models.ForeignKey(QuizQuestion, null=True, default=None, on_delete=models.CASCADE)
+	questionChoiceValue = models.CharField(max_length=128, default='')
 
 	def __str__(self):
-		return self.value
+		return self.questionChoiceValue
 
 class ForumThread(models.Model):
-	title = models.CharField(max_length=128, unique=True, default='')
-	slug = models.SlugField(unique=True, default='')
+	threadTitle = models.CharField(max_length=128, unique=True, default='')
+#threadCreator = models.ForeignKey(Character, blank=False)
+	threadSlug = models.SlugField(unique=True, default='')
 	
 	def save(self, *args, **kwargs):
-		self.slug = slugify(self.title)
+		self.threadSlug = slugify(self.threadTitle)
 		super(ForumThread, self).save(*args, **kwargs)
 
 	def __str__(self):
-		return self.title
+		return self.threadTitle
 
 class ForumThreadComment(models.Model):
-	thread = models.ForeignKey(ForumThread, default='')
-	title = models.CharField(max_length=128, default='')
+	linkedThread = models.ForeignKey(ForumThread, default='')
+	commentContent = models.CharField(max_length=128, default='')
 
 	def __str__(self):
-		return self.title	
+		return self.commentContent
 
 class UserProfile(models.Model):
 	# This line is required. Links UserProfile to a User model instance.
