@@ -17,11 +17,12 @@ class UserProfileForm(forms.ModelForm):
 
 class ForumThreadForm(forms.ModelForm):
 	threadTitle = forms.CharField(max_length=128)
+	threadContent = forms.CharField(max_length=500)
 	threadSlug = forms.CharField(widget=forms.HiddenInput(), required=False)
 
 	class Meta:
 		model = ForumThread
-		fields = ('threadTitle',)
+		fields = ('threadTitle','threadContent')
 
 class ForumThreadCommentForm(forms.ModelForm):
 	commentContent = forms.CharField(max_length=128,help_text="Please enter the title of the page.")
