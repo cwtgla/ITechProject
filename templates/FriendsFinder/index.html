@@ -1,0 +1,36 @@
+{% extends 'FriendsFinder/base.html' %}
+
+	{% load staticfiles %}
+
+{% block body_block %}
+
+	<div>
+	{% if user.is_authenticated %}
+	<h1>
+		Hello {{ user.username }}!
+		</h1> <br />
+	{% else %}
+		<br />
+		<br />
+		<body>
+		By filling in a personality questionnaire, you will be assigned a Friends' character. <br />
+		You will then have the opportunity to meet other people of your Friends kind by joining a forum for that specific character type.<br />
+		Please register or log in to begin!
+		<br /><br />
+	{% endif %}
+	{% if user.is_authenticated %}
+				Now that you are logged in, you can make the most of our quiz and forum!<br />
+			{% endif %}
+	
+	<br />
+</body>
+			<div class="text-center">
+			<img src="{% static "images/friends1.jpg" %}" width="1121" height="300" alt="Friends Image" class="center-block"/> 
+		</div>
+	</div>
+
+	
+	
+	
+	
+{% endblock %}

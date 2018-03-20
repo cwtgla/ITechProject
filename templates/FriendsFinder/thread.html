@@ -1,0 +1,26 @@
+{% extends 'FriendsFinder/base.html' %}
+
+	{% load staticfiles %}
+
+	{% block title_block %}
+		
+	{% endblock %}
+
+
+{% block body_block %}
+    {% if thread %} <ul>
+        {% if user.is_authenticated %}
+			<a href="{% url 'add_post' thread.slug %}">Add a Post</a>
+        {% endif %}
+
+        {% if posts %}
+        {% for post in posts %}
+             <h1>{{post.title}}</h1>
+        {% endfor %} </ul>
+        {% endif %}
+
+    {% else %}
+    {% endif %}
+
+    
+{% endblock %}

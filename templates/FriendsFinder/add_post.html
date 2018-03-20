@@ -1,0 +1,58 @@
+{% extends 'FriendsFinder/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+
+	        FriendsFinder - Add Post
+
+{% endblock %}
+
+
+
+{% block body_block %}
+	<div>
+			{% if thread %}
+
+			
+
+	        <h1>Add a Post to {{thread.title}}</h1>
+
+	        <form id="post_form" method="post" action="/FriendsFinder/thread/{{ thread.slug }}/add_post/">
+
+
+
+	            {% csrf_token %}
+
+	            {% for hidden in form.hidden_fields %}
+
+	                {{ hidden }}
+
+	            {% endfor %}
+
+
+
+	            {% for field in form.visible_fields %}
+
+	                {{ field.errors }}
+
+	                {{ field.help_text }}
+
+	                {{ field }}
+
+	            {% endfor %}
+
+
+
+	            <input type="submit" name="submit" value="Add Post" />
+
+	        </form>
+
+			
+
+			{% else %}
+
+				The specified category does not exist!
+
+			{% endif%}
+
+			
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'FriendsFinder/base.html' %}
+
+	{% load staticfiles %}
+
+	{% block title_block %}
+		
+	{% endblock %}
+
+
+{% block body_block %}
+    {% if threads %} <ul>
+        {% for thread in threads %}
+            <li><a href="/FriendsFinder/thread/{{ thread.slug }}">{{ thread.title }}</a></li>
+        {% endfor %} </ul>
+
+        <a href="/FriendsFinder/add_thread/">Add Thread</a>
+    {% else %}
+            <strong>There are no categories present.</strong>
+    {% endif %}
+{% endblock %}

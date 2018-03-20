@@ -1,0 +1,40 @@
+
+         body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Open Sans
+            font-size:20px
+
+
+        }
+        
+
+
+
+
+       img {
+    max-width: 100%;
+    height: auto;
+}
+
+.row {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+#result {
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    border: 1px solid white;
+    padding: 8px;
+    margin-right: 25%;
+    margin-left: 25%;
+    width: 50%;
+}
+
+
+

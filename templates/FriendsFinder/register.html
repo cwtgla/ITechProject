@@ -1,0 +1,28 @@
+{% extends 'FriendsFinder/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+<br /><br />
+	Register
+{% endblock %}
+
+{% block body_block %}
+	
+	{% if registered %}
+	<br />
+		Thank you for registering! Now you can make the most of our forum! Please make sure you complete our quiz first to find out who your character is!
+	{% else %}
+	<h1>Register for Friends Finder</h1>
+		<br />
+		<form id="user_form" method="post" action="{% url 'register' %}"
+			enctype="multipart/form-data">
+
+		{% csrf_token %}
+
+			{{ user_form.as_p }}
+		
+		<input type="submit" name="submit" value="Register" />
+		<br /><br />
+	</form>
+	{% endif %}
+{% endblock %}

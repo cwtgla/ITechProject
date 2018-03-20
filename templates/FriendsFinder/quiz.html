@@ -1,0 +1,22 @@
+{% extends 'FriendsFinder/base.html' %}
+
+	{% load staticfiles %}
+
+	{% block title_block %}
+		
+	{% endblock %}
+
+
+{% block body_block %}
+	Since you're logged in, you can see this text
+	{% if questions %} <ul>
+        {% for question in questions %}
+        	<li>{{ question.value }}</li>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.value }}</li>
+        {% endfor %}
+        {% endfor %} </ul>
+    {% else %}
+            <strong>There are no categories present.</strong>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load FriendsFinder_template_tags %}
+
+<html lang="en">
+<head>
+<br />
+	<br />
+	<br />
+	<img src="{% static "images/sign.jpg" %}" width="1300" height="117" alt="Sign Friends Finder"/>
+		
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,
+initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+<!-- Bootstrap core CSS -->
+
+<link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css"
+rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'FriendsFinder/style.css' %}" />
+<!-- Custom styles for this template -->
+<link href=
+"http://v4-alpha.getbootstrap.com/examples/starter-template/.css"
+rel="stylesheet">
+
+</head>
+
+<body>
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+<button class="navbar-toggler navbar-toggler-right hidden-lg-up"
+type="button"
+data-toggle="collapse"
+data-target="#navbar"
+aria-controls="navbar"
+aria-expanded="false"
+aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<a class="navbar-brand" href="{% url 'index' %}">FriendsFinder</a>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto">
+
+
+{% if user.is_authenticated %}
+
+<li class="nav-item">
+<a class="nav-link" href="{% url 'quiz' %}">
+Quiz
+</a>
+</li>
+
+
+
+
+<li class="nav-item">
+<a class="nav-link" href="{% url 'results' %}?next=/FriendsFinder/results">
+Your Result
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{% url 'logout' %}?next=/FriendsFinder/">
+Logout
+</a>
+</li>
+
+{% else %}
+
+
+
+<li class="nav-item">
+<a class="nav-link" href="{% url 'login' %}?next=/FriendsFinder/login/">
+Login
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{% url 'register' %}?next=/FriendsFinder/register/">
+Register
+</a>
+</li>
+{% endif %}
+</ul>
+</div>
+</nav>
+<div class="container-fluid">
+<div class="row">
+
+
+
+</div>
+<div>
+{% block body_block %}{% endblock %}
+</div>
+
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+</script>
+<script
+src="http://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js">
+</script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script
+src=
+"http://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js">
+</script>
+
+</body>
+</html>
